@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+  <div class="row">
+    <div class="alert alert-info">
+      <h1>Get Your Skills Certified</h1>
+    </div>
+    <div *ngFor="let sk of data; index as i">
+      <div class="col-md-4 box box1">
+        <div class="box-link">
+          <h2> {{sk.name}}</h2>
+          <button class="btn btn-info box-btn" (click)="showPopup(sk._id)"> Start Test</button>
+        </div>
+        <img class="box-img" src="../..{{sk.image}}">
+      </div>
+    </div>
+
+    <div class="overlay " *ngIf="popup">
+      <div class="row popup">
+        <div class="col-md-12 ">
+          <div class=" col-md-4  img_Container">
+            <img alt="A view of the sea" src="../../../assets/img1.svg">
+          </div>
+          <div class="col-md-4">
+            <img alt="A view of the sea" src="../../../assets/img2.svg">
+          </div>
+          <div class="col-md-4">
+            <img alt="A view of the sea" src="../../../assets/img3.svg">
+          </div>
+        </div>
+        <div class="col-md-12" style="text-align:center">
+          <div class=" col-md-4  img_info">
+            <h4>Start Quiz</h4>
+            <p>Test your knowledge with basic quiz made especially for beginners. Pass the test and get a Certificate of
+              achievement!</p>
+          </div>
+          <div class="col-md-4">
+            <h4>The Test</h4>
+            <p>The test contains 10 questions and there is no time limit. The test is not official. It's just a nice way
+              to see how much you know about the Technology.</p>
+          </div>
+          <div class="col-md-4">
+            <h4>Count Your Score</h4>
+            <p>You will get 10% for each correct answer. At the end of the Quiz, your total score will be displayed out
+              of 100% maximum score.</p>
+          </div>
+        </div>
+        <a class="close" (click)="popup = false">&times;</a>
+        <div class="col-md-12" style="text-align: center;">
+          <button class="btn btn-info box-btn" (click)="startTest()" style=""> Start Test</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

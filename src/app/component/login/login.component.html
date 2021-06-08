@@ -1,0 +1,55 @@
+
+<body>
+  <div class="row login_bg">
+    <div class="col-md-4"></div>
+    <div class="col-md-4" style="margin-top: 10%;">
+      <div class="headerDiv">
+        <img class="logoImage" src="../../assets/NeoSoft.svg" style=" width: 50%;">
+      </div>
+    <div class="login">
+      <h4>Login</h4>
+      <div *ngIf="alert" class="alert alert-warning alert-dismissible  show" role="alert">
+        <div class="error">{{ error }}</div>
+        <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div *ngIf="success" class="alert alert-success alert-dismissible  show" role="alert">
+      <div class="error">User successfully created.</div>
+      <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+      
+      <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
+      <div class="form-group">
+        <input type="email" class="form-control" [(ngModel)]="email" placeholder="Enter Email" formControlName="email" [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
+          <div *ngIf=" formControls.email.errors && formControls.email.touched || isSubmitted" class="help-block">
+            <p class="error" *ngIf="formControls.email.errors.required">Email is required</p>
+            <p class="error" *ngIf="formControls.email.errors.pattern">Enter valid Email</p>
+
+          </div>
+          <!-- <div *ngIf="isSubmitted && formControls.email.errors"> -->
+          <!-- </div> -->
+      </div>
+        
+      <div class="form-group">
+        <input type="password" class="form-control" [(ngModel)]="password" placeholder="Enter Password" formControlName="password" [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+        <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+          <p class="error" *ngIf="formControls.password.errors.required">Password is required</p>
+        </div>
+      </div>
+      <div class="row buttonContainer">
+        <div class="col-md-4" style="margin-left: 0%;">
+          <input class="inputButton" type="submit" value="Login">
+        </div>
+        <div class="col-md-8" style="margin-top: 15px;">
+          <a href='/registration' class="inputButton">New Registration</a>
+        </div>
+      </div>
+      </form>
+    </div>
+    </div>
+  <div class="col-md-4"></div>
+  </div>
+</body>

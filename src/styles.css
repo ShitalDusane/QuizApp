@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css);
+body, html {
+    height: 100%;
+    
+  }
+ @font-face{
+   font-family:Poppins;
+   src:url(../src/assets/Font/Poppins-Regular.ttf) format('truetype');
+ }
+ 
+ .Poppins{
+ font-family:Poppins;
+}
+
+
+
+html, body { height: 100%; }
+body { margin: 0;font-family: Poppins; }

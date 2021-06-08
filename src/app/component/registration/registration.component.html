@@ -1,0 +1,84 @@
+
+<div class="row Registration_bg">
+    <div class="col-md-7">
+        <img src="../../assets/ex2.jpg" alt="alternatetext">
+    </div>
+    
+    <div class="col-md-4">
+        <div class="regitration_box">
+            <h2 style="text-align: center;">Registration Form</h2>
+            
+            <div *ngIf="alert" class="alert alert-warning alert-dismissible  show" role="alert">
+                <div class="error">{{ error }}</div>
+                <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div *ngIf="success" class="alert alert-success alert-dismissible  show" role="alert">
+                <div class="error">User successfully created.</div>
+                <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form [formGroup]="singupForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="name">Name</label> 
+                    <input type="text" id="name" formControlName ="name" [(ngModel)]="name" class="form-control" required>
+                    <span
+                    *ngIf="!singupForm.get('name').valid && singupForm.get('name').touched"
+                    class="help block">Pleace Enter a valid Name !</span>
+                </div>
+
+        <div class="form-group">
+            <label for="password">Password</label><br>
+            <input type="password" id="password" formControlName ="password"  [(ngModel)]="password" class="form-control" required>
+            <span
+            *ngIf="!singupForm.get('password').valid && singupForm.get('password').touched"
+            class="help block">Pleace Enter a valid Password !</span>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Id</label><br>
+            <input type="email" id="email" formControlName ="email" class="form-control" [(ngModel)]="email"  type="email" name="email" ngModel email required>
+            <span
+            *ngIf="!singupForm.get('email').valid && singupForm.get('email').touched "
+            class="help block">Pleace Enter a valid Email !</span>
+        </div>
+           
+        <label>Gender:&nbsp;&nbsp;&nbsp;</label>
+        <div class="radio-inline"> 
+            <label class="">
+             <input id="male" formControlName ="gender" type="radio" class="custom-control-input" value="male"  [(ngModel)]="gender">Male
+            </label>
+            <label class="" style="margin-left: 30px;">
+            <input id="female" formControlName ="gender" type="radio" class="custom-control-input" value="female" [(ngModel)]="gender">Female
+            </label>
+        </div>
+        
+        <div formArrayName="skills">
+            <h5><b>Skill Set</b></h5>
+            <button class="btn btn-default" type="button" (click)="onAddSkill()">Add skill</button>
+              <div class="form-group" *ngFor="let skillsControl of singupForm.get('skills')?.controls; let i = index">
+                <input type="text" class="form-control"  [formControlName]="i">
+              </div>
+        </div><br>
+
+        <div class="form-group">
+            <label for="position">Position Applied</label><br>
+            <input type="text" id="position" formControlName ="position" [(ngModel)]="position" class="form-control" >
+        </div>
+
+        <div><span *ngIf="!singupForm.valid && singupForm.touched"
+                    class="help block">Pleace Enter a valid Data !</span>
+        </div>
+        <button class="btn inputButton" type="submit" style=" font-weight: bold" *ngIf="singupForm.valid">Submit</button> 
+   
+        <a class="btn inputButton not-allowed" type="submit" style="font-weight: bold" disabled *ngIf="!singupForm.valid">Submit</a><br><br>
+        <a class="btn inputButton" href="./login" type="button" style="font-weight: bold">Login</a>
+        
+    </form>
+    </div> 
+    <div class="col-md-1"></div>
+</div> 
+<app-footer></app-footer>
+
