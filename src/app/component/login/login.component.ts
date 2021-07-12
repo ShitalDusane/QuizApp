@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   error: string;
   alert: boolean = false;
   success: boolean = false;
+  loginData :any = {}
 
   emailPattern = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
 
@@ -39,8 +40,16 @@ export class LoginComponent implements OnInit {
       "email": this.email,
       "password": this.password
     };
+  
     this.authService.Postdata(postData).subscribe(success => {
+      this.loginData = success;
+      localStorage.setItem("token", this.loginData.data.token);
+      localStorage.setItem("userType", this.loginData.data.userType);
+      localStorage.setItem("name",this.loginData.data.name);
+  
+    
       this.router.navigateByUrl('/test');
+
     }, error => {
       console.log(error);
       this.alert = true;
@@ -51,6 +60,8 @@ export class LoginComponent implements OnInit {
   closeAlert() {
     this.alert = false;
   }
+
+
 
 }
 

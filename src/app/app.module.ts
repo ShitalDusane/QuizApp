@@ -14,6 +14,7 @@ import { QuizComponent } from './component/quiz/quiz.component';
 import{HttpClientModule} from '@angular/common/http';
 import { ResultComponent } from './component/result/result.component';
 import { TempformComponent } from './tempform/tempform.component';
+import { AdminAddQueComponent } from './component/admin-add-que/admin-add-que.component';
 // import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 
@@ -30,6 +31,7 @@ import { TempformComponent } from './tempform/tempform.component';
     QuizComponent,
     ResultComponent,
     TempformComponent,
+    AdminAddQueComponent,
   ],
   imports: [
     BrowserModule,

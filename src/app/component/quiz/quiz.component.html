@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="container mt-5">
+<div class="container mt-5" *ngIf="!sendresult">
     <div class="d-flex justify-content-center row" style="    margin-bottom: 5rem;">
         <div class="col-md-10 col-lg-10">
             <div class="border">
@@ -15,7 +15,7 @@
                     </div>
 
                     <div *ngFor="let que of currentQue.options; let idx = index">
-                        <input type="radio" name="radiogroup" value="{{que._id}}" (change)="onSelectionChange(que)">
+                        <input type="radio" name="radiogroup" value="{{que._id}}" (change)="onSelectionChange(que, currentQue.id)">
                         <label for="{{que.text}}">&nbsp;&nbsp;{{que.text}}</label><br>
                     </div>
 
@@ -27,11 +27,11 @@
                     </button> -->
                 <div style="text-align: right;">
                     <button class="btn btn-primary border-success align-items-center btn-success" style="margin:15px"
-                        *ngIf="questionNumber < queCount" type="button" (click)="nextQue(currentQue.options)">
-                        Next<i class="fa fa-angle-right ml-2"></i>
+                      *ngIf="questionNumber < queCount " [disabled]="!visible" type="button" (click)="nextQue(currentQue.options)">Next
+                        <i class="fa fa-angle-right ml-2"></i>
                     </button>
                     <button class="btn btn-primary border-success align-items-center btn-success" style="margin:15px"
-                        *ngIf="questionNumber >= queCount" type="button" (click)="submitTest()">
+                        *ngIf="questionNumber >= queCount " type="button" [disabled]="!visible" (click)="submitTest()">
                         Submit<i class="fa fa-angle-right ml-2"></i>
                     </button>
 
@@ -40,5 +40,5 @@
         </div>
     </div>
 </div>
-
+<app-result [sendresult] = 'sendresult'></app-result>
 <app-footer></app-footer>

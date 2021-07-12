@@ -1,11 +1,8 @@
-<app-navbar></app-navbar>
-dnbskjdfkjsd
-<div id="certificate" class="cert-main" data-number="1">
+<div class=row *ngIf="score">
 
-    <h1>CERTIFICATE <span>of Achievement</span></h1>
-    <figure class="logo-image">
-        <!-- <img src="/uploads/media/quiz_gallery/0001/05/thumb_4226_quiz_gallery_social.png" layout="fixed" alt="Quiz result" width="60" height="60" class="i-amphtml-element i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-built i-amphtml-layout" i-amphtml-layout="fixed" style="width: 60px; height: 60px;" i-amphtml-auto-lightbox-visited="" lightbox="i-amphtml-auto-lightbox-0" on="tap:amp-lightbox-gallery.activate"><img decoding="async" alt="Quiz result" src="/uploads/media/quiz_gallery/0001/05/thumb_4226_quiz_gallery_social.png" class="i-amphtml-fill-content i-amphtml-replaced-content"></img> -->
-    </figure>
+    <!-- <figure class="logo-image">
+     <img src="/uploads/media/quiz_gallery/0001/05/thumb_4226_quiz_gallery_social.png" layout="fixed" alt="Quiz result" width="60" height="60" class="i-amphtml-element i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-built i-amphtml-layout" i-amphtml-layout="fixed" style="width: 60px; height: 60px;" i-amphtml-auto-lightbox-visited="" lightbox="i-amphtml-auto-lightbox-0" on="tap:amp-lightbox-gallery.activate"><img decoding="async" alt="Quiz result" src="/uploads/media/quiz_gallery/0001/05/thumb_4226_quiz_gallery_social.png" class="i-amphtml-fill-content i-amphtml-replaced-content"></img>
+     </figure>
     <div class="score certificate">
         <div class="cert-content">
             <em>This is to certify that</em> <h2>Rupesh</h2> <em>Has taken the test in</em> <h3>HTML Basic</h3> <em>and has received a score of</em> <strong>47.5%</strong>
@@ -16,11 +13,32 @@ dnbskjdfkjsd
             <span>#2bf5f302d594ccca2c7f9fdab1a0cebf</span>
             <span>certificate</span>
         </p>
-        <!-- <img src="/build/images/Award_1.png" alt="certificate" width="95" height="115" class="i-amphtml-element i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-built i-amphtml-layout" i-amphtml-layout="fixed" style="width: 95px; height: 115px;" i-amphtml-auto-lightbox-visited=""><img decoding="async" alt="certificate" src="/build/images/Award_1.png" class="i-amphtml-fill-content i-amphtml-replaced-content"></img> -->
+         <img src="/build/images/Award_1.png" alt="certificate" width="95" height="115" class="i-amphtml-element i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-built i-amphtml-layout" i-amphtml-layout="fixed" style="width: 95px; height: 115px;" i-amphtml-auto-lightbox-visited="">
+            <img decoding="async" alt="certificate" src="../../../assets/Certy_BG.svg" class="i-amphtml-fill-content i-amphtml-replaced-content">
         <p class="right-side">
             <span>May 25, 2021 06:37</span>
             <span>Issued by <a href="https://www.w3docs.com">w3docs</a></span>
         </p>
+    </div> -->
+
+
+
+<div id="certificate" class="cert-main" data-number="1">
+
+    <h1><b>CERTIFICATE</b> <br>
+        <span>of Achievement</span></h1>
+    <div class="score certificate">
+        <div class="cert-content">
+            <em>This is to certify that</em>
+            <h2>{{name}}</h2>
+            <em>has taken the test in</em>
+            <h3>{{resultdata.skillDetails.name}}</h3>
+            <em>and has received a score of <br></em>
+            <stong>{{score}}%</stong>
+         <div class="cert-footer">
+        <img decoding="async" alt="certificate" src="../../../assets/trophy.jpg"class="trophy-img" >
     </div>
+    </div>
+    </div>    
 </div>
-<app-footer></app-footer>
+</div>

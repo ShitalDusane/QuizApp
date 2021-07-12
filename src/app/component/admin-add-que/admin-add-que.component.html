@@ -1,0 +1,40 @@
+<div class="container">
+    <h3 style="text-align: center;">Enter Question</h3>
+    <form #Adding_question="ngForm" ngSubmit="onSubmit(#Adding_question.value)">
+       
+        <div class="col-md-12 ">
+            <div class="form-group Que">
+           <label for="add_quetion">Type your Question </label>
+           <textarea id="myTextarea" class="Que" >
+        </textarea>
+        </div>
+      </div>
+    <div class="col-md-12 Ans" style="margin-top: 15px;">
+        <div class="form-group">
+            <label >Options :</label>
+        
+            <label class="">
+                <input type="radio" name="Option1" value=""> &nbsp;&nbsp; <input type="input" class="Ans" #option1Control="" name="Option1" value="">
+            </label><br>
+            <label class="">
+                <input type="radio" name="Option1" value=""> &nbsp;&nbsp; <input type="input" class="Ans"  #option1Control="" name="Option2" value="">
+            </label><br>
+            <label class="">
+                <input type="radio" name="Option1" value=""> &nbsp;&nbsp; <input type="input" class="Ans" #option1Control="" name="Option3" value="">
+            </label><br>
+            <label class="">
+                <input type="radio" name="Option1" value=""> &nbsp;&nbsp; <input type="input" class="Ans" #option1Control="" name="Option4" value="">
+            </label>
+            
+        </div>
+        <span class="label label-danger" *ngIf="option1Control.invalid && option1Control.touched"> * Please check right Answer *</span>
+    </div>
+    <div class="col-md-12 ">
+        <div class="fixAction" >
+            <button type="button" class="btn btn-info">Submit</button>
+            <button type="button" class="btn btn-danger">Cancle</button>
+            <input class="btn btn-primary" type="reset" value="Reset">
+        </div>
+    </div>
+    </form>
+</div>

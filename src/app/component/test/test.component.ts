@@ -12,7 +12,11 @@ export class TestComponent implements OnInit {
   name: String;
   data: object;
   getQuestionURL = '';
-  constructor(private SkillSet: SkillsetService, private router: Router) { }
+  userType:String;
+  constructor(private SkillSet: SkillsetService, private router: Router) { 
+    debugger;
+    this.userType = localStorage.getItem('userType');
+  }
   ngOnInit(): void {
     this.SkillSet.getSkillData().subscribe((data: any) => {
       this.data = data.data;

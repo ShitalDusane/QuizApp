@@ -1,0 +1,27 @@
+label {
+    /* Other styling... */
+    display: block;
+}
+
+.Que{
+    width: 100%;
+    height: 80px;
+}
+
+.Ans{
+    width: 90%;
+    height:25%;
+}
+.submitAns{
+    text-align: center;
+    padding: 5%;
+}
+
+.btn-danger{
+     margin-right: 15px;
+    margin-left: 15px;
+}
+
+.fixAction{
+    text-align: center;
+}
