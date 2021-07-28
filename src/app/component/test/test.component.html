@@ -10,7 +10,7 @@
           <h2> {{sk.name}}</h2>
           <button class="btn btn-info box-btn" (click)="showPopup(sk._id)"> Start Test</button>&nbsp;&nbsp;
           <!-- <button class="btn btn-info box-btn" (click)=""> Add Question</button> -->
-          <a href='/admin-add-que' class="inputButton btn btn-info" *ngIf="userType == 'admin'" >Add Question</a>
+          <a style="margin-top: 25px;" href='/admin-add-que' (click)="getSkillId(sk._id)" class="inputButton btn btn-info" *ngIf="userType == 'admin'" >Add Question</a>
         </div>
         <img class="box-img" src="../..{{sk.image}}">
       </div>

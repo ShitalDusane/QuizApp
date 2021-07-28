@@ -7,6 +7,11 @@
                     <div class="d-flex flex-row justify-content-between align-items-center mcq">
                         <h4>MCQ Quiz</h4><span>({{questionNumber}} of {{queCount}})</span>
                     </div>
+                    <div *ngIf="userType == 'admin'">
+                        <button  style="margin-left: 400px;" class="btn btn-primary  align-items-center btn-danger" type="button" (click)="deleteQue(currentQue.id)">
+                            Delete Question
+                         </button>
+                    </div>
                 </div>
                 <div class="question bg-white p-3 border-bottom">
                     <div class="d-flex flex-row align-items-center question-title">
@@ -40,5 +45,12 @@
         </div>
     </div>
 </div>
+
+<div class="col-md-12 " *ngIf="!sendresult">
+    <div class="fixAction" >
+        <a class="btn btn-danger" routerLink="/test">Cancle Test</a>
+    </div>
+</div>
+
 <app-result [sendresult] = 'sendresult'></app-result>
 <app-footer></app-footer>

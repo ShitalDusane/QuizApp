@@ -11,6 +11,7 @@ export class ResultComponent implements OnInit {
   resultdata;
   score;
   name:string;
+  popup: boolean = false;
   
   constructor(private post: ResultService) {
     
@@ -22,11 +23,22 @@ export class ResultComponent implements OnInit {
 
   }
   ngOnChanges() {
-    this.resultdata = JSON.parse(this.sendresult); // from quiz
-    this.score = ((this.resultdata.score / this.resultdata.total) * 100);
-
+    if(this.sendresult !== undefined){
+      this.resultdata = JSON.parse(this.sendresult); // from quiz
+      this.score = ((this.resultdata.score / this.resultdata.total) * 100);
+      if(this.score === 0){
+        // alert('Certificate not applicable for score(%) = 0');
+        this.popup = true;
+      }
+    }
   }
 
+  // setCertificationResult(sendresult){
+  //   if(sendresult !== undefined){
+  //     this.resultdata = JSON.parse(sendresult); // from quiz
+  //     this.score = ((this.resultdata.score / this.resultdata.total) * 100);
+  //   }
+  // }
   //  parentWillTakeAction(sendresult){
   //   this.messageFromChild = sendresult;
   // }

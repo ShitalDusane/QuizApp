@@ -23,22 +23,44 @@
 
 
 
-<div id="certificate" class="cert-main" data-number="1">
+    <div id="certificate" class="cert-main" data-number="1">
 
-    <h1><b>CERTIFICATE</b> <br>
-        <span>of Achievement</span></h1>
-    <div class="score certificate">
-        <div class="cert-content">
-            <em>This is to certify that</em>
-            <h2>{{name}}</h2>
-            <em>has taken the test in</em>
-            <h3>{{resultdata.skillDetails.name}}</h3>
-            <em>and has received a score of <br></em>
-            <stong>{{score}}%</stong>
-         <div class="cert-footer">
-        <img decoding="async" alt="certificate" src="../../../assets/trophy.jpg"class="trophy-img" >
+        <h1><b>CERTIFICATE</b> <br>
+            <span>of Achievement</span>
+        </h1>
+        <div class="score certificate">
+            <div class="cert-content">
+                <em>This is to certify that</em>
+                <h2>{{name}}</h2>
+                <em>has taken the test in</em>
+                <h3>{{resultdata.skillDetails.name}}</h3>
+                <em>and has received a score of <br></em>
+                <stong>{{score}}%</stong>
+                <div class="cert-footer">
+                    <img decoding="async" alt="certificate" src="../../../assets/trophy.jpg" class="trophy-img">
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
-    </div>    
 </div>
+
+
+<div class="overlay" *ngIf="popup">
+    <div class="row popup">
+        <div class="col-md-12 ">
+            <div style="margin-left: 10px;" id="certificate" class="cert-main" data-number="1">
+                <div class="score certificate">
+                    <div style="margin-top: 94px;" class="cert-content">
+                        <h2>{{name}}</h2><br>
+                        <h3>{{resultdata.skillDetails.name}}</h3><br>
+                        <em>Sorry you are failed<br><br></em>
+                        <em>Better Luck next time !!!<br></em>
+                        <div class="cert-footer">
+                            <img decoding="async" alt="certificate" src="../../../assets/trophy.jpg" class="trophy-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

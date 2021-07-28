@@ -14,7 +14,7 @@ export class TestComponent implements OnInit {
   getQuestionURL = '';
   userType:String;
   constructor(private SkillSet: SkillsetService, private router: Router) { 
-    debugger;
+   // debugger;
     this.userType = localStorage.getItem('userType');
   }
   ngOnInit(): void {
@@ -30,6 +30,11 @@ export class TestComponent implements OnInit {
 
   startTest() {
     this.router.navigateByUrl(this.getQuestionURL);
+  }
+
+  getSkillId(skillIdforadmin: any){
+    this.SkillSet.GetSkillIdForAdmin(skillIdforadmin).subscribe((s: any) => {
+    });
   }
 
 }

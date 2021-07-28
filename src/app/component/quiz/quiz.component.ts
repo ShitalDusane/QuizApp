@@ -1,7 +1,8 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { QuestionService } from 'src/app/Services/question.service';
 import { ResultService } from 'src/app/Services/result.service';
+import { ResultComponent } from '../result/result.component';
 
 
 @Component({
@@ -29,10 +30,13 @@ export class QuizComponent implements OnInit {
   options: [];
   selectedEntry = [];
   result: any;
+  userType:String;
 
-
+  //@ViewChild(ResultComponent,  { static: false,read:true}) resultComponent:ResultComponent;
   constructor(private que: QuestionService, private router: Router, private resultservice: ResultService) {
     this.skillId = location.search.split('skillId=')[1];
+    this.userType = localStorage.getItem('userType');
+
    
   }
 
@@ -75,7 +79,7 @@ export class QuizComponent implements OnInit {
     this.resultservice.Postdata(data).subscribe((data: any) => {
       this.result = data.data;
       this.sendresult = JSON.stringify(this.result);
-      // console.log("datakdsfkl ", this.sendresult)
+      //this.resultComponent.setCertificationResult(this.sendresult);
     });
 
 
@@ -90,5 +94,9 @@ export class QuizComponent implements OnInit {
       this.currentQue = this.allQuestion[this.currentQueId];
       setTimeout(function () { }, 1000);
     }
+  }
+
+  deleteQue(id){
+    console.log(id);
   }
 }
